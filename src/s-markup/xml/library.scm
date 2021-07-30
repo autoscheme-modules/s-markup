@@ -1,4 +1,4 @@
-(define-library (s-expressions s-markup xml)
+(define-library (s-markup xml)
   (import (scheme base)
 	  (scheme write)
 	  (srfi-13)

@@ -1,4 +1,4 @@
-(define-library (s-expressions s-markup html)
+(define-library (s-markup html)
   (import (scheme base)
 	  (scheme write)
 
