@@ -1,10 +1,9 @@
-(define-library (s-markup xml)
-  (import (scheme base)
-	  (scheme write)
-	  (srfi-13)
+;;  This file is part of the 'AutoScheme' project.
+;;  Copyright 2021 Steven Wiley <s.wiley@katchitek.com> 
+;;  SPDX-License-Identifier: BSD-2-Clause
 
-	  (chicken port)
-	  (regex)
+(define-library (s-markup xml)
+  (import 
 	  )
 
   (export display-xml write-xml)
@@ -24,11 +23,28 @@
 
     (define debug-xml-linebreak "")
 
+
+
+
+		   
+
     (define replace-special-chars
       (lambda (s)
-	(string-substitute* s '(("&" . "&amp;") 
-				("\"" . "&quot;")("'" . "&apos;")("<" . "&lt;")(">" . "&gt;")
-				("©" . "&copy;") ("lambda" . "&lambda;")))))
+
+	(string-map (lambda (c)
+		      (cond ((equal? c #\&) "&amp;")
+			    ((equal? c #\") "&quot;")
+			    ((equal? c #\') "&apos;")
+			    ((equal? c #\<) "&lt;")
+			    ((equal? c #\>) "&gt;")
+			    ((equal? c #\xA9) "&copy;")
+			    ((equal? c #\lambda) "&lambda;")
+			    (else (string c))))
+		    s)))
+
+    	;; (string-substitute* s '(("&" . "&amp;") 
+	;; 			("\"" . "&quot;")("'" . "&apos;")("<" . "&lt;")(">" . "&gt;")
+	;; 			("©" . "&copy;") ("lambda" . "&lambda;")))))
 
 
     (define remainder->xml
