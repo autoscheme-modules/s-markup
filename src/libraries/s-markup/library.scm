@@ -2,7 +2,7 @@
 ;;  Copyright 2021 Steven Wiley <s.wiley@katchitek.com> 
 ;;  SPDX-License-Identifier: BSD-2-Clause
 
-(define-library (s-expressions s-markup)
+(define-library (s-markup)
   (import (scheme base)
 	  (scheme write)
 
